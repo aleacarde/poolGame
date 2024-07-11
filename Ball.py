@@ -5,10 +5,6 @@ class Ball:
         assert isinstance(number, int)
         self.__number = number
         self.__ball_type = self.__determine_ball_type()
-
-    @property
-    def number(self) -> int:
-        return self.__number
     
     @property
     def ball_type(self) -> str:
