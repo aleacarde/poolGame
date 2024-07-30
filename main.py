@@ -15,6 +15,6 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    DISPLAYSURFACE.blit(table.image, (table.rect.centerx, table.rect.centery))
+    DISPLAYSURFACE.blit(table.image, table.image.get_rect(center = DISPLAYSURFACE.get_rect().center))
     pygame.display.flip()
     
