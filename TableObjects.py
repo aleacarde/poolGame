@@ -5,7 +5,7 @@ import pygame
 class Ball(pygame.sprite.Sprite):
     # number to ball types
 
-    def __init__(self, number: int, mass: float) -> None:
+    def __init__(self, number: int, mass: float = 0.17) -> None:
         super().__init__()
 
         self.__number = number
@@ -15,6 +15,7 @@ class Ball(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load(os.path.join("Assets", f"ball_{self.number}.png"))
         self.rect = self.image.get_rect()
+        self.mass = mass
     
     @property
     def number(self) -> int:
@@ -28,7 +29,7 @@ class Ball(pygame.sprite.Sprite):
     def __determine_ball_type(self) -> None:
         if self.number < 8:
             return "solid"
-        elif self.number > 8:
+        elif self.number > 8 and self.number < 16:
             return "stripe"
         elif self.number == 8:
             return "8-ball"
